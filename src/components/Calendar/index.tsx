@@ -33,6 +33,8 @@ export const Calendar = () => {
           marginHorizontal: -15
         }
       }}
+      firstDay={1}
+      minDate={String(new Date())}
     />
   )
 }
