@@ -18,6 +18,7 @@ import {
 import theme from './src/Global/styles/theme';
 import { StatusBar } from 'react-native';
 import { CarDetails } from './src/screens/CarDetails';
+import { Schedule } from './src/screens/Schedule';
 
 
 export default function App() {
@@ -35,7 +36,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={ theme }>
-      <CarDetails />
+      <Schedule />
     </ThemeProvider>
   );
 }
