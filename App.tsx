@@ -16,9 +16,11 @@ import {
 } from '@expo-google-fonts/archivo';
 
 import theme from './src/Global/styles/theme';
-import { StatusBar } from 'react-native';
+
 import { CarDetails } from './src/screens/CarDetails';
 import { Schedule } from './src/screens/Schedule';
+import { ScheduleDetails } from './src/screens/ScheduleDetails';
+import { SchedulingCompleted } from './src/screens/SchedulingCompleted';
 
 
 export default function App() {
@@ -36,7 +38,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={ theme }>
-      <Schedule />
+      <SchedulingCompleted />
     </ThemeProvider>
   );
 }
