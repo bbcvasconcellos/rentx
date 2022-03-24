@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigation } from '@react-navigation/native';
+
 import { Accessory } from "../../components/Accessory";
 import { BackButton } from "../../components/BackButton";
 import { ImageSlider } from "../../components/ImageSlider";
+import { Button } from "../../components/Button";
 
 import speedSvg from "../../assets/speed.svg";
 import accelerationSvg from "../../assets/acceleration.svg";
@@ -26,13 +29,23 @@ import {
   Price, 
   Rent 
 } from "./styles";
-import { Button } from "../../components/Button";
+
 
 export const CarDetails = () => {
+  const navigation = useNavigation<any>();
+
+  const handleGoBack = () => {
+    navigation.goBack()
+  }
+
+  const handleConfirm = () => {
+    navigation.navigate('Schedule')
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton onPress={() =>{}} />
+        <BackButton onPress={handleGoBack} />
       </Header>
       <CarImages>
         <ImageSlider imagesUrl={['https://www.pngall.com/wp-content/uploads/12/Pagani.png']}/>
@@ -81,7 +94,10 @@ export const CarDetails = () => {
         </About>
       </Content>
       <Footer>
-        <Button title="Confirm" />
+        <Button  
+          title="Choose rental date" 
+          onPress={handleConfirm}  
+        />
       </Footer>
     </Container>
   )

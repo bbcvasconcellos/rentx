@@ -1,12 +1,15 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { RFValue } from "react-native-responsive-fontsize";
+import { useNavigation } from '@react-navigation/native';
 
 import Logo from "../../assets/logo.svg";
 import { CarList, Container, Header, HeaderContent, TotalCars } from "./styles";
 import { CarCard } from "../../components/CarCard";
 
 export const Home = () => {
+  const navigation = useNavigation<any>();
+
   const carData = {
     brand: 'Pagani',
     model: 'huayra',
@@ -16,6 +19,11 @@ export const Home = () => {
     },
     thumbnail: 'https://www.pngall.com/wp-content/uploads/12/Pagani.png'
   }
+
+  const handleCarDetails = () => {
+    navigation.navigate('CarDetails');
+  }
+
   return (
     <Container>
       <StatusBar
@@ -35,7 +43,7 @@ export const Home = () => {
       <CarList 
         data={[1,2,3]}
         keyExtractor={item => String(item)}
-        renderItem={({ item }) => <CarCard data={carData}/>}
+        renderItem={({ item }) => <CarCard data={carData} onPress={handleCarDetails}/>}
       />
     </Container>
   )

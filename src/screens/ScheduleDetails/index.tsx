@@ -2,6 +2,7 @@ import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { useTheme } from "styled-components";
 import { RFValue } from "react-native-responsive-fontsize";
+import { useNavigation } from '@react-navigation/native';
 
 import { Accessory } from "../../components/Accessory";
 import { BackButton } from "../../components/BackButton";
@@ -16,7 +17,6 @@ import exchangeSvg from "../../assets/exchange.svg";
 import peopleSvg from "../../assets/people.svg";
 
 import { 
-  About, 
   Accessories, 
   Brand, 
   CalendarIcon, 
@@ -46,11 +46,20 @@ import {
 
 export const ScheduleDetails = () => {
   const theme = useTheme();
+  const navigation = useNavigation<any>();
+
+  const handleConfirmDate = () => {
+    navigation.navigate('SchedulingCompleted');
+  }
+
+  const handleGoBack = () => {
+    navigation.goBack();
+  }
 
   return (
     <Container>
       <Header>
-        <BackButton onPress={() =>{}} />
+        <BackButton onPress={handleGoBack} />
       </Header>
       <CarImages>
         <ImageSlider imagesUrl={['https://www.pngall.com/wp-content/uploads/12/Pagani.png']}/>
@@ -123,7 +132,11 @@ export const ScheduleDetails = () => {
         </RentalPrice>
       </Content>
       <Footer>
-        <Button title="Confirm" />
+        <Button 
+          title="Rent now" 
+          color={theme.colors.success}
+          onPress={handleConfirmDate} 
+        />
       </Footer>
     </Container>
   )

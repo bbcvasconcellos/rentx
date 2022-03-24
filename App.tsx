@@ -2,7 +2,8 @@ import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
-import { Home } from './src/screens/Home';
+import { Routes } from './src/Routes';
+
 
 import {
   useFonts,
@@ -16,11 +17,6 @@ import {
 } from '@expo-google-fonts/archivo';
 
 import theme from './src/Global/styles/theme';
-
-import { CarDetails } from './src/screens/CarDetails';
-import { Schedule } from './src/screens/Schedule';
-import { ScheduleDetails } from './src/screens/ScheduleDetails';
-import { SchedulingCompleted } from './src/screens/SchedulingCompleted';
 
 
 export default function App() {
@@ -37,8 +33,8 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={ theme }>
-      <SchedulingCompleted />
-    </ThemeProvider>
+      <ThemeProvider theme={ theme }>
+        <Routes />
+      </ThemeProvider>
   );
 }
