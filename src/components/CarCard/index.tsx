@@ -21,7 +21,7 @@ export const CarCard = ({ data, ...rest }: CarDataProps) => {
           <About>
             <RentInfo>
               <Period>{data.rent.period}</Period>
-              <Price>{data.rent.price}</Price>
+              <Price>${data.rent.price}</Price>
             </RentInfo>
             <Type>
               <GasolineSvg />

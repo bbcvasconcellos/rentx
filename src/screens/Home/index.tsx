@@ -17,8 +17,8 @@ export const Home = () => {
   const navigation = useNavigation<any>();
   const { data, isLoading } = useFetch('/cars')
 
-  const handleCarDetails = () => {
-    navigation.navigate('CarDetails');
+  const handleCarDetails = (car: CarDTO) => {
+    navigation.navigate('CarDetails', { car });
   }
 
   return (
@@ -40,9 +40,9 @@ export const Home = () => {
       { isLoading ? 
         <Loading /> : 
         <CarList 
-        data={data as CarDTO}
+        data={data}
         keyExtractor={(item: CarDTO) => String(item.id)}
-        renderItem={({ item }) => <CarCard data={item} onPress={handleCarDetails}/>}
+        renderItem={({ item }: {[key: string]: CarDTO}) => <CarCard data={item} onPress={() => handleCarDetails(item)}/>}
       />
       }
       
