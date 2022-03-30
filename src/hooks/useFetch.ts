@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { AxiosRequestConfig } from "axios";
 import api from "../services/api";
+import { CarDTO } from "../dtos/carDtos";
 
 export const useFetch = (url: string, options?: AxiosRequestConfig) => {
-  const [data, setData] = useState<unknown | null>(null);
+  const [data, setData] = useState<CarDTO[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 

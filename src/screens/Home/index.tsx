@@ -15,7 +15,7 @@ import { CarList, Container, Header, HeaderContent, TotalCars } from "./styles";
 
 export const Home = () => {
   const navigation = useNavigation<any>();
-  const { data, isLoading } = useFetch('/cars')
+  const { data, isLoading } = useFetch('/cars');
 
   const handleCarDetails = (car: CarDTO) => {
     navigation.navigate('CarDetails', { car });
@@ -34,15 +34,15 @@ export const Home = () => {
             width={RFValue(108)}
             height={RFValue(12)}
           />
-          <TotalCars>XX cars found</TotalCars>
+          <TotalCars>{data.length} cars found</TotalCars>
         </HeaderContent>
       </Header>
       { isLoading ? 
         <Loading /> : 
         <CarList 
-        data={data}
-        keyExtractor={(item: CarDTO) => String(item.id)}
-        renderItem={({ item }: {[key: string]: CarDTO}) => <CarCard data={item} onPress={() => handleCarDetails(item)}/>}
+          data={data}
+          keyExtractor={(item: CarDTO) => String(item.id)}
+          renderItem={({ item }: {[key: string]: CarDTO}) => <CarCard data={item} onPress={() => handleCarDetails(item)}/>}
       />
       }
       

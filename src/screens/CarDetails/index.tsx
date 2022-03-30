@@ -1,18 +1,13 @@
 import React from "react";
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { StatusBar } from "expo-status-bar";
 
 import { Accessory } from "../../components/Accessory";
 import { BackButton } from "../../components/BackButton";
 import { ImageSlider } from "../../components/ImageSlider";
 import { Button } from "../../components/Button";
 
-import speedSvg from "../../assets/speed.svg";
-import accelerationSvg from "../../assets/acceleration.svg";
-import forceSvg from "../../assets/force.svg";
-import gasolineSvg from "../../assets/gasoline.svg";
-import exchangeSvg from "../../assets/exchange.svg";
-import peopleSvg from "../../assets/people.svg";
-
+import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 import { CarDTO } from "../../dtos/carDtos";
 
 import { 
@@ -32,6 +27,7 @@ import {
   Rent 
 } from "./styles";
 
+
 interface Params {
   car: CarDTO
 }
@@ -39,7 +35,7 @@ interface Params {
 export const CarDetails = () => {
   const navigation = useNavigation<any>();
   const route = useRoute();
-  const { car } = route.params as Params
+  const { car } = route.params as Params;
 
   const handleGoBack = () => {
     navigation.goBack()
@@ -51,6 +47,11 @@ export const CarDetails = () => {
 
   return (
     <Container>
+      <StatusBar
+        style="dark"
+        backgroundColor="transparent"
+        translucent 
+      />
       <Header>
         <BackButton onPress={handleGoBack} />
       </Header>
@@ -73,7 +74,7 @@ export const CarDetails = () => {
             <Accessory  
               key={index}
               name={accessory.name}
-              icon={speedSvg}
+              icon={getAccessoryIcon(accessory.type)}
           />
           ))}
           

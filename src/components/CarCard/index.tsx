@@ -5,6 +5,7 @@ import { CarDTO } from "../../dtos/carDtos";
 
 import GasolineSvg from "../../assets/gasoline.svg";
 import { Container, Details, Brand, Model, About, RentInfo, Period, Price, Type, CarImage } from "./styles";
+import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 
 
 
@@ -13,6 +14,8 @@ interface CarDataProps extends RectButtonProps{
 }
 
 export const CarCard = ({ data, ...rest }: CarDataProps) => {
+  const MotorType = getAccessoryIcon(data.fuel_type);
+
   return (
     <Container {...rest}>
         <Details>
@@ -24,7 +27,7 @@ export const CarCard = ({ data, ...rest }: CarDataProps) => {
               <Price>${data.rent.price}</Price>
             </RentInfo>
             <Type>
-              <GasolineSvg />
+              <MotorType />
             </Type>
           </About>
         </Details>
