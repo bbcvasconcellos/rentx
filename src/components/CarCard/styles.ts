@@ -1,7 +1,4 @@
-import {
-  GestureHandlerRootView,
-  RectButton,
-} from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import styled from "styled-components/native";

@@ -10,14 +10,15 @@ import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
 
 interface CarDataProps extends RectButtonProps{
   data: CarDTO;
+  onPress: () => void
 }
 
-export const CarCard = ({ data, ...rest }: CarDataProps) => {
+export const CarCard = ({ data, onPress,...rest }: CarDataProps) => {
   const MotorType = getAccessoryIcon(data.fuel_type);
 
   return (
-    <GestureHandlerRootView>
-    <Container {...rest}>
+    <GestureHandlerRootView style={{flex:1}}> 
+    <Container onPress={onPress} {...rest}>
         <Details>
           <Brand>{data.brand}</Brand>
           <Model>{data.name}</Model>
