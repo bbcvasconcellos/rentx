@@ -17,7 +17,6 @@ export const CarCard = ({ data, onPress,...rest }: CarDataProps) => {
   const MotorType = getAccessoryIcon(data.fuel_type);
 
   return (
-    <GestureHandlerRootView style={{flex:1}}> 
     <Container onPress={onPress} {...rest}>
         <Details>
           <Brand>{data.brand}</Brand>
@@ -37,6 +36,5 @@ export const CarCard = ({ data, onPress,...rest }: CarDataProps) => {
           resizeMode="contain"  
         />
     </Container>
-    </GestureHandlerRootView>
   )
 }

@@ -44,9 +44,8 @@ export const Home = () => {
           data={data}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
-            <GestureHandlerRootView style={{flex: 1}}>
               <CarCard data={item} onPress={() => handleCarDetails(item)}/>
-            </GestureHandlerRootView>
+            
             
           )}
       />
