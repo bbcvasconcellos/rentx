@@ -1,9 +1,9 @@
 import { RFValue } from "react-native-responsive-fontsize";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  max-width: 109px;
-  width: 104px;
+  width: ${wp(28)}px;
   height: 92px;
 
   justify-content: center;

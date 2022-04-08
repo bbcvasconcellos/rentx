@@ -11,7 +11,6 @@ import { CarDTO } from "../../dtos/carDtos";
 
 import Logo from "../../assets/logo.svg";
 import { CarList, Container, Header, HeaderContent, TotalCars } from "./styles";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 
 export const Home = () => {
@@ -44,9 +43,7 @@ export const Home = () => {
           data={data}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
-              <CarCard data={item} onPress={() => handleCarDetails(item)}/>
-            
-            
+              <CarCard data={item} onPress={() => handleCarDetails(item)}/>  
           )}
       />
       }

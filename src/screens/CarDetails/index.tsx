@@ -42,7 +42,7 @@ export const CarDetails = () => {
   }
 
   const handleConfirm = () => {
-    navigation.navigate('Schedule')
+    navigation.navigate('Schedule', { car })
   }
 
   return (

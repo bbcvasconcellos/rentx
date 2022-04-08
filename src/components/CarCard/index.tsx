@@ -1,11 +1,10 @@
 import React from "react";
-import {GestureHandlerRootView, RectButtonProps } from "react-native-gesture-handler";
+import { RectButtonProps } from "react-native-gesture-handler";
 
 import { CarDTO } from "../../dtos/carDtos";
 
 import { Container, Details, Brand, Model, About, RentInfo, Period, Price, Type, CarImage } from "./styles";
 import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
-
 
 
 interface CarDataProps extends RectButtonProps{

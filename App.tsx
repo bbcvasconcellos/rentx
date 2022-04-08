@@ -2,10 +2,10 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 import AppLoading from 'expo-app-loading';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from 'styled-components';
 
 import { Routes } from './src/Routes';
-
 
 import {
   useFonts,
@@ -19,7 +19,6 @@ import {
 } from '@expo-google-fonts/archivo';
 
 import theme from './src/Global/styles/theme';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 export default function App() {
