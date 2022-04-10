@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { format } from "date-fns";
 import { CalendarProps } from "react-native-calendars";
@@ -51,14 +51,10 @@ export const Schedule = () => {
   }
 
   const handleConfirmPeriod = () => {
-    if(!rentalPeriod.startDateFormated || !rentalPeriod.endDateFormated) {
-      Alert.alert('Please select a rental date range');
-    } else {
-      navigation.navigate('ScheduleDetails', { 
-        dates: Object.keys(markedDates),
-        car
-      });
-    }
+    navigation.navigate('ScheduleDetails', { 
+      dates: Object.keys(markedDates),
+      car
+    });  
   }
 
   const handleChangeDate = (date: DayProps) => {
@@ -125,6 +121,7 @@ export const Schedule = () => {
         <Button 
           title="Confirm"
           onPress={handleConfirmPeriod}
+          enabled={!!rentalPeriod.endDateFormated}
         />
       </Footer>
     </Container>

@@ -62,6 +62,8 @@ export const ScheduleDetails = () => {
   const { car, dates } = route.params as Params;
   const [rentalPeriod, setRentalPeriod] = useState<RentalPeriodProps>({} as RentalPeriodProps);
 
+  console.log(car)
+
   const handleConfirmDate = async() => {
     const schedulesByCar = await api.get(`/schedules_bycars/${car.id}`);
 
@@ -71,6 +73,13 @@ export const ScheduleDetails = () => {
       ...schedulesByCar.data.unavailable_dates,
       ...dates,
     ];
+
+    await api.post(`/schedules_byuser/`, {
+      user_id: 1,
+      car,
+      startDate: format(getPlatformDate(new Date(dates[0])), 'MM/dd/yyyy'),
+      endDate: format(getPlatformDate(new Date(dates[dates.length - 1])), 'MM/dd/yyyy')
+    })
 
     await api.put(`/schedules_bycars/${car.id}`, {
       id: car.id,

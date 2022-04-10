@@ -21,8 +21,8 @@ export const CarCard = ({ data,...rest }: CarDataProps) => {
           <Model>{data.name}</Model>
           <About>
             <RentInfo>
-              <Period>{data.rent.period}</Period>
-              <Price>${data.rent.price}</Price>
+              <Period>{data.rent?.period}</Period>
+              <Price>${data.rent?.price}</Price>
             </RentInfo>
             <Type>
               <MotorType />
