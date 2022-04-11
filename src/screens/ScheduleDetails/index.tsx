@@ -61,10 +61,11 @@ export const ScheduleDetails = () => {
   const route = useRoute();
   const { car, dates } = route.params as Params;
   const [rentalPeriod, setRentalPeriod] = useState<RentalPeriodProps>({} as RentalPeriodProps);
-
-  console.log(car)
+  const [loading, setLoading] = useState(false);
 
   const handleConfirmDate = async() => {
+    setLoading(true)
+
     const schedulesByCar = await api.get(`/schedules_bycars/${car.id}`);
 
     //validate whether a date can be validated or not (challenge)
@@ -86,7 +87,10 @@ export const ScheduleDetails = () => {
       unavailable_dates: unavailableDates
     })
     .then(() => navigation.navigate('SchedulingCompleted'))
-    .catch(() => Alert.alert('Could not confirm payment'))
+    .catch(() => {
+      setLoading(false);
+      Alert.alert('Could not confirm payment')
+    })
     
   }
 
@@ -173,6 +177,8 @@ export const ScheduleDetails = () => {
           title="Rent now" 
           color={theme.colors.success}
           onPress={handleConfirmDate} 
+          loading={loading}
+          enabled={!loading}
         />
       </Footer>
     </Container>
