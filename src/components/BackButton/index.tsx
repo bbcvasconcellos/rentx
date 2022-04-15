@@ -1,8 +1,8 @@
 import React from "react";
+import { useTheme } from "styled-components"
 import { MaterialIcons } from "@expo/vector-icons";
 import { BorderlessButtonProps } from "react-native-gesture-handler";
 
-import { useTheme } from "styled-components"
 import { Container } from "./styles";
 
 interface ButtonProps extends BorderlessButtonProps {

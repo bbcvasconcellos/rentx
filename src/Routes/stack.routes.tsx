@@ -2,19 +2,27 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Home } from '../screens/Home';
-import { CarDetails } from '../screens/CarDetails'; 
+import { MyCars } from '../screens/MyCars';
+import { Splash } from '../screens/Splash';
 import { Schedule } from '../screens/Schedule'; 
+import { CarDetails } from '../screens/CarDetails'; 
 import { ScheduleDetails } from '../screens/ScheduleDetails'; 
 import { SchedulingCompleted } from '../screens/SchedulingCompleted'; 
-import { MyCars } from '../screens/MyCars';
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
 export const StackRoutes = () => {
   return (
-    <Navigator screenOptions={{
-      headerShown: false
-    }}>
+    <Navigator 
+      initialRouteName='Splash'
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Screen 
+        name='Splash'
+        component={Splash}
+      />
       <Screen 
         name='Home'
         component={Home}

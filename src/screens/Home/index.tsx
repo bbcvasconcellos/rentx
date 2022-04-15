@@ -5,11 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from "styled-components";
 
+import { CarDTO } from "../../dtos/carDtos";
+import { useFetch } from "../../hooks/useFetch";
+
 import { CarCard } from "../../components/CarCard";
 import { Loading } from "../../components/Loading";
-
-import { useFetch } from "../../hooks/useFetch";
-import { CarDTO } from "../../dtos/carDtos";
 
 import Logo from "../../assets/logo.svg";
 import { CarList, Container, Header, HeaderContent, MyCarsButton, TotalCars } from "./styles";

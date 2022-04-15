@@ -1,6 +1,13 @@
-import React, { useRef, useState } from "react"
-import { FlatList, ViewToken } from "react-native"
-import { CarImage, CarImageWrapper, Container, ImageIndex, ImageIndexes } from "./styles"
+import React, { useRef, useState } from "react";
+import { FlatList, ViewToken } from "react-native";
+
+import { 
+  CarImage, 
+  Container, 
+  ImageIndex, 
+  ImageIndexes,
+  CarImageWrapper, 
+} from "./styles";
 
 interface ImageProps {
   imagesUrl: string[]

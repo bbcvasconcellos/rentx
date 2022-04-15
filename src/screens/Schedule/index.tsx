@@ -9,8 +9,8 @@ import { Button } from "../../components/Button";
 import { BackButton } from "../../components/BackButton";
 import { Calendar, DayProps, generateInterval } from "../../components/Calendar";
 
-import { getPlatformDate } from "../../utils/getPlatformDate";
 import { CarDTO } from "../../dtos/carDtos";
+import { getPlatformDate } from "../../utils/getPlatformDate";
 
 import ArrowSvg from "../../assets/arrow.svg";
 

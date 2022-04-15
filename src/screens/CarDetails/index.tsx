@@ -2,13 +2,14 @@ import React from "react";
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { StatusBar } from "expo-status-bar";
 
+import { CarDTO } from "../../dtos/carDtos";
+
+import { Button } from "../../components/Button";
 import { Accessory } from "../../components/Accessory";
 import { BackButton } from "../../components/BackButton";
 import { ImageSlider } from "../../components/ImageSlider";
-import { Button } from "../../components/Button";
 
 import { getAccessoryIcon } from "../../utils/getAccessoryIcon";
-import { CarDTO } from "../../dtos/carDtos";
 
 import { 
   About, 
