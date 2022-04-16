@@ -17,8 +17,8 @@ export const Button = ({
   color, 
   enabled = true, 
   loading = false, 
-  ...rest }: ButtonProps
-  ) => {
+  ...rest 
+}: ButtonProps) => {
 
   const theme = useTheme();
 
