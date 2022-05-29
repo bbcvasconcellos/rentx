@@ -19,7 +19,7 @@ import {
 } from "./styles";
 
 
-interface CarDataProps extends RectButtonProps{
+interface CarDataProps extends RectButtonProps {
   data: CarDTO;
 }
 
